@@ -18,7 +18,9 @@ const SelectUser = ({navigation}) => {
       <TouchableOpacity style={styles.buttonHire} onPress={()=>{
         
       }}>
-      <Text style={styles.txt2}>Want to get Job</Text>
+      <Text style={styles.txt2} onPress={()=>{
+        navigation.navigate('JobSearchingNavigator')
+      }}>Want to get Job</Text>
       </TouchableOpacity>
     </View>
   )

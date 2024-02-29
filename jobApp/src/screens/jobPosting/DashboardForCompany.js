@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+
 } from 'react-native';
 import React, {useState} from 'react';
 import {Colors} from '../../utils/Colors';
@@ -13,14 +14,24 @@ import MyJobs from './tabs/MyJobs';
 import SearchCondidate from './tabs/SearchCondidate';
 import Chats from './tabs/Chats';
 import Profile from './tabs/Profile';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const DashboardForCompany = () => {
-    const navigation = useNavigation()
+  const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
-        {selected==0?<MyJobs />:selected==1?<SearchCondidate />:selected==3?<Chats />:<Profile />}
+      {selected == 0 ? (
+        <MyJobs />
+      ) : selected == 1 ? (
+        <SearchCondidate />
+      ) : selected == 3 ? (
+        <Chats />
+      ) : (
+        <Profile onJobClick={()=>{
+          setSelected(0)
+        }}/>
+      )}
       <View style={styles.bottomView}>
         <TouchableOpacity
           style={[
@@ -60,8 +71,7 @@ const DashboardForCompany = () => {
             {borderTopWidth: selected === 2 ? 3 : 0, borderColor: 'red'},
           ]}
           onPress={() => {
-            
-            navigation.navigate('AddJob')
+            navigation.navigate('AddJob');
           }}>
           <Image
             source={require('../../assets/images/addition.png')}

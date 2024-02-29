@@ -8,6 +8,8 @@ import Splash from '../screens/onBoarding/Splash';
 import DashboardForCompany from '../screens/jobPosting/DashboardForCompany';
 import AddJob from '../screens/jobPosting/tabs/AddJob';
 import EditJob from '../screens/jobPosting/tabs/EditJob';
+import UpdateProfileForCompany from '../screens/jobPosting/UpdateProfileForCompany';
+import ChangeProfilePicForCompany from '../screens/jobPosting/ChangeProfilePicForCompany';
 
 const Stack = createStackNavigator();
 const MainNavigator = () => {
@@ -37,6 +39,16 @@ const MainNavigator = () => {
         <Stack.Screen
           name="EditJob"
           component={EditJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UpdateProfileForCompany"
+          component={UpdateProfileForCompany}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ChangeProfilePicForCompany"
+          component={ChangeProfilePicForCompany}
           options={{headerShown: false}}
         />
         <Stack.Screen

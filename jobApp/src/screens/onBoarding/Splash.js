@@ -20,11 +20,13 @@ const Splash = () => {
   const getData = async () => {
     const Type = await AsyncStorage.getItem('USER_TYPE');
     console.log("login usertype====",Type);
-    
+    if(Type!=null){
       if (Type == 'company') {
         navigation.navigate('DashboardForCompany');
+      }else {
+        navigation.navigate('JobSearchingNavigator');
       }
-     else {
+    }else {
       navigation.navigate('SelectUser');
     }
   };
